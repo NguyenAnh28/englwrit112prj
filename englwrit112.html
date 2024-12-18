@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Impact of AI on the Job Market</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            gap: 20px;
+        }
+        .box {
+            width: 300px;
+            padding: 20px;
+            border: 2px solid #000;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+        .top-box {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .bottom-box {
+            font-size: 18px;
+            font-weight: normal;
+        }
+        .row {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .sub-box-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .sub-box {
+            width: 260px;
+            padding: 10px;
+            border: 2px solid #000;
+            border-radius: 8px;
+            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
+            cursor: pointer;
+            background-color: #f9f9f9;
+        }
+        .sub-box:hover {
+            background-color: #e0e0e0; /* Darker tone on hover */
+        }
+        /* Tooltip styling */
+        .tooltip {
+            position: absolute;
+            background-color: #000; /* Solid black background */
+            color: #fff; /* White text */
+            padding: 8px;
+            border-radius: 5px;
+            font-size: 14px;
+            white-space: normal; /* Allows the text to wrap */
+            z-index: 9999; /* Ensures the tooltip is above everything else */
+            visibility: hidden; /* Hidden by default */
+            pointer-events: none; /* Prevent tooltip from interfering with mouse events */
+            transition: opacity 0.2s;
+            width: 200px; /* Fixed width */
+            height: auto; /* Height adjusts based on content */
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="box top-box">
+        The Impact of AI on the Job Market
+    </div>
+    <div class="row">
+        <div class="box bottom-box">
+            Impact on Job Applications and Interview
+            <div class="sub-box-container">
+                <div class="sub-box" data-tooltip="With generative AI models such as ChatGPT, applicants can produce high-quality bullet points that align with the seeking companies’ needs in seconds. This gives applicants using AI an unfair advantage because they are better positioned to present their qualifications.">AI in resumes</div>
+                <div class="sub-box" data-tooltip="AI can wrongfully help candidates in interviews by generating polished, idealized answers that may not reflect their true skills or experience. This can mislead interviewers, leading to unfair advantages for candidates.">Automated interview answers</div>
+                <div class="sub-box" data-tooltip="AI can be used to sift through thousands of applications by filtering out those who do not qualify through automated computer systems. This automation saves time, but it can make AI-optimized resumes more likely to get through, while strong applicants who don’t use AI might not.">AI in resume screenings</div>
+            </div>
+        </div>
+        <div class="box bottom-box">
+            Some of the categories influenced by AI in the job market
+            <div class="sub-box-container">
+                <div class="sub-box" data-tooltip="AI is both addressing and reinforcing gender bias in the job market. While it can reduce human biases by standardizing processes, poorly designed algorithms may perpetuate existing biases, favoring male candidates in some cases.">Biases on gender</div>
+                <div class="sub-box" data-tooltip="AI can both mitigate and exacerbate racial bias in the job market. While it has the potential to standardize hiring by focusing on qualifications, biased training data can lead AI systems to favor certain racial groups, reinforcing inequalities.">Biases on race</div>
+                <div class="sub-box" data-tooltip="AI can affect age bias in hiring by either reducing or amplifying it. Algorithms, if not carefully monitored, may favor younger candidates based on patterns in the data, overlooking experienced older candidates, thus reinforcing age discrimination.">Biases on age</div>
+            </div>
+        </div>
+        <div class="box bottom-box">
+            Impact on the Job Market in General and Other Fields
+            <div class="sub-box-container">
+                <div class="sub-box" data-tooltip="AI is creating jobs by enabling new industries and roles, such as data science, AI research, and machine learning engineering. It also opens opportunities in sectors like healthcare, automation, and AI-driven innovation, requiring specialized expertise.">AI creating job opportunities</div>
+                <div class="sub-box" data-tooltip="AI is replacing jobs by automating repetitive and manual tasks, such as data entry, customer support, and manufacturing. It can analyze large datasets quickly, reducing the need for human labor in these areas.">AI replacing jobs</div>
+                <div class="sub-box" data-tooltip="AI contributes to environmental harm through the high energy consumption required for training models, especially deep learning. Data centers and the mining of resources for hardware also contribute to carbon emissions.">AI's impact on the environment</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Tooltip container (hidden by default) -->
+<div class="tooltip" id="tooltip"></div>
+
+<script>
+    // Select all .sub-box elements and the tooltip container
+    const subBoxes = document.querySelectorAll('.sub-box');
+    const tooltip = document.getElementById('tooltip');
+
+    // Function to show and move the tooltip based on mouse position
+    subBoxes.forEach(box => {
+        box.addEventListener('mouseover', function(event) {
+            // Set tooltip content
+            tooltip.textContent = this.getAttribute('data-tooltip');
+            // Make the tooltip visible
+            tooltip.style.visibility = 'visible';
+        });
+
+        box.addEventListener('mousemove', function(event) {
+            // Get mouse position
+            const mouseX = event.clientX;
+            const mouseY = event.clientY;
+
+            // Position tooltip near the mouse cursor
+            tooltip.style.left = mouseX + 10 + 'px'; // 10px to the right of the cursor
+            tooltip.style.top = mouseY + 10 + 'px'; // 10px below the cursor
+        });
+
+        box.addEventListener('mouseout', function() {
+            // Hide tooltip when mouse leaves the box
+            tooltip.style.visibility = 'hidden';
+        });
+    });
+</script>
+
+</body>
+</html>
+
+
+
+
